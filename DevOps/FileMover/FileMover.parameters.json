@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "LogicAppName": { "value": "FileMoverLogicApp" },
+    "LogicAppTriggerName": { "value": "whenaneventoccurs" },
+    "location": { "value": "eastus" },
+    "topicName": { "value": "StorageTopic" },
+    "storageAccountName": { "value": "sourcejgew7cuc4a2x2" },
+    "eventGridConnectionName": { "value": "EventGridConnection" },
+    "ConnectionTenantId": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/shared/providers/Microsoft.KeyVault/vaults/karlrissSharedVault"
+        },
+        "secretName": "LogicAppSp-TennantID"
+      }
+    },
+    "ConnectionClientId": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/shared/providers/Microsoft.KeyVault/vaults/karlrissSharedVault"
+        },
+        "secretName": "LogicAppSp-ClientID"
+      }
+    },
+    "ConnectionClientSecret": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/shared/providers/Microsoft.KeyVault/vaults/karlrissSharedVault"
+        },
+        "secretName": "LogicAppSp-ClientSecret"
+      }
+    }
+  }
+}
